@@ -12,6 +12,9 @@ EXTRACT_DIR="Hammerspoon-1.0.0"
 # Папка Applications
 APPLICATIONS_DIR="/Applications"
 
+# Папка конфигурации Hammerspoon
+HAMMERSPOON_CONFIG_DIR="$HOME/.hammerspoon"
+
 # Скачиваем архив
 echo "Скачиваем архив..."
 curl -L -o "$ZIP_FILE" "$URL"
@@ -45,5 +48,35 @@ fi
 # Удаляем скачанный архив
 echo "Удаляем скачанный архив..."
 rm "$ZIP_FILE"
+
+# Копируем конфигурационные файлы и папку Spoons
+echo "Копируем конфигурационные файлы и папку Spoons..."
+
+# Проверяем и создаем папку конфигурации, если она не существует
+mkdir -p "$HAMMERSPOON_CONFIG_DIR"
+
+# Копируем init.lua
+if [ -f "init.lua" ]; then
+    if [ -f "$HAMMERSPOON_CONFIG_DIR/init.lua" ]; then
+        echo "Создаем резервную копию существующего init.lua..."
+        mv "$HAMMERSPOON_CONFIG_DIR/init.lua" "$HAMMERSPOON_CONFIG_DIR/init.lua.bkp"
+    fi
+    cp "init.lua" "$HAMMERSPOON_CONFIG_DIR/"
+    echo "init.lua скопирован."
+else
+    echo "Файл init.lua не найден в текущей директории."
+fi
+
+# Копируем папку Spoons
+if [ -d "Spoons" ]; then
+    if [ -d "$HAMMERSPOON_CONFIG_DIR/Spoons" ]; then
+        echo "Создаем резервную копию существующей папки Spoons..."
+        mv "$HAMMERSPOON_CONFIG_DIR/Spoons" "$HAMMERSPOON_CONFIG_DIR/Spoons.bkp"
+    fi
+    cp -r "Spoons" "$HAMMERSPOON_CONFIG_DIR/"
+    echo "Папка Spoons скопирована."
+else
+    echo "Папка Spoons не найдена в текущей директории."
+fi
 
 echo "Готово!"
