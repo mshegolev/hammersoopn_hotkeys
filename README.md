@@ -11,7 +11,10 @@
 
 1. **Скачайте скрипт**:
 
-   - Сохраните скрипт в файл, например, `install_hammerspoon.sh`.
+```bash
+    git clone https://github.com/mshegolev/hammersoopn_hotkeys.git
+
+```
 
 2. **Сделайте скрипт исполняемым**:
 
