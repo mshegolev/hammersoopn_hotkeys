@@ -22,7 +22,7 @@
     chmod +x install_hammerspoon.sh
 ```
 
-3. ** Устаановка молотоложки:**
+3. **Устаановка молотоложки:**
 ```
     ./install_hammerspoon.sh
 ```
