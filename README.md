@@ -28,6 +28,9 @@
 ```
 
 ## Прошивка клавиатуры
+Репозиторий откуда можно скачать прошивку https://github.com/mshegolev/zmk-config-s/actions/runs/11269726101
+Сайт для переопределения кнопок https://nickcoutsos.github.io/keymap-editor/
+
 1. Сперва обе половины прошиваете(просто копируете файл на появившийся диск) файлом settings_reset-nice_nano_v2-zmk.uf2
 Для полного сброса всех настроек.
 
